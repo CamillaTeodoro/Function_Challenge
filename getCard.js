@@ -9,6 +9,11 @@
 //----clubs,spades, hearts, diamonds
 //Return both in an object
 
+function pick(arr) {
+  const index = Math.floor(Math.random() * arr.length);
+  return arr[index];
+}
+
 function getCard() {
   const values = [
     "2",
@@ -25,12 +30,16 @@ function getCard() {
     "K",
     "A",
   ];
-  const randomNum = Math.floor(Math.random() * values.length);
-  const value = values[randomNum];
+
+  const value = pick(values);
 
   const suits = ["clubs", "spades", "hearts", "diamonds"];
-  const randomSuits = Math.floor(Math.random() * suits.length);
-  const suit = suits[randomSuits];
 
-  console.log(suit, value)
+  const suit = pick(suits);
+
+  console.log({ value: value, suit: suit });
+
+  return { value: value, suit: suit };
 }
+
+getCard();
